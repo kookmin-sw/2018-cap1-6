@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+<title>insert repo's url </title>
+</head>
+<body>
+  <div class="container">
+
+   <form class="login-form form-horizontal" method="post" name="testForm">
+    <div class="contentBox">
+     <h3 class="contentBoxTop">Please insert Github Repository's URL</h3>
+     <fieldset>
+      <div class="form-group ">
+       <label for="url" class="col-sm-3 control-label">Repository URL</label>
+       <div class="col-sm-9">
+        <input class="form-control" type="text" id="url" name="url" value="">
+       </div>
+      </div>
+     </fieldset>
+    </div>
+
+    <div class="buttons">
+     
+    </div>
+   </form>
+   <input class="btn btn-default" value="Submit" onclick="to_ajax()">
+  </div> <!-- container end -->
+  <script>
+ 
+    function to_ajax(){
+  
+ 
+        var queryString = $("form[name=testForm]").serialize() ;
+        
+        alert(queryString);
+        $.ajax({
+            type : 'post',
+            url : "https://7pkvioieej.execute-api.ap-northeast-2.amazonaws.com/test",
+            data : queryString,
+            dataType : 'json',
+            error: function(xhr, status, error){
+                alert(status);
+            },
+            success : function(json){
+                alert(json)
+            },
+        });
+  
+    }
+ 
+ 
+</script>
+ </body>
+</html>
