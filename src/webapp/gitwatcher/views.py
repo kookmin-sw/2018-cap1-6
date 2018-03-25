@@ -1,20 +1,10 @@
-from django.http import HttpResponse
-from django.template import loader
-
+from django.shortcuts import render
 
 def index(request):
-    template = loader.get_template('gitwatcher/index.html')
-    context = {
-    }
-    return HttpResponse(template.render(context, request))
+    if request.method == "POST":
+        url = request.POST['url'] # 이걸 gitinspector 모듈로 보내야 함.
+        return render(request,"gitwatcher/result.html",{"url": url})
+    else:
+        return render(request,"gitwatcher/index.html")
 
 
-def detail(request, question_id):
-    return HttpResponse("You're looking at question %s." % question_id)
-
-def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
-
-def vote(request, question_id):
-    return HttpResponse("You're voting on question %s." % question_id)
