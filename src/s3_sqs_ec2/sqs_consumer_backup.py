@@ -32,7 +32,7 @@ class SQSConsumer (threading.Thread):
 		maxMsgs = self.getNumberOfMessages()
 		count = 0
 		print("No. of Messages to consume:", maxMsgs)
-		while True:
+		while numMsgs < maxMsgs or count < maxRetry:
 			time.sleep(SLEEP)
 			numMsgs += self.consumeMessages()
 			count += 1
@@ -54,7 +54,7 @@ class SQSConsumer (threading.Thread):
 			queue = self.getQueue()
 			if queue:				
 			  # Receive messages from the SQS queue by using the receive_messages API method.
-				# Enable long polling and set maximum number of messages to 10.2
+				# Enable long polling and set maximum number of messages to 10.
 				attribs = queue.attributes
 				numMessages = int(attribs.get(QUEUE_ATTR_NAME))
 		except Exception as err:
@@ -65,7 +65,7 @@ class SQSConsumer (threading.Thread):
                 s3 = boto3.client('s3')
                 arr = fileName.split('/')
                 fname = arr[-1]
-                path = '/home/ec2-user/files/' + fname
+                path = './files/' + fname
                 print(path)
                 try:
                     s3.download_file(bucketName,fileName,path)
