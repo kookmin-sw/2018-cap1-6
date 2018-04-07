@@ -102,6 +102,9 @@ class SQSConsumer (threading.Thread):
                                         print(fileName)
                                         print(size)
                                         print(bucketName)
+
+                                        fname = fileName.split('/')[-1].split('.')[0]
+                                        print(fname)
                                         self.getFile(fileName,bucketName)
 
 					# !!!! The example of excution of bashscript!!!!

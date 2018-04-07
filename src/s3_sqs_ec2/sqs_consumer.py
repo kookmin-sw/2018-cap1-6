@@ -1,3 +1,4 @@
+from analyzer import run
 import threading
 import time
 import utils
@@ -67,14 +68,15 @@ class SQSConsumer (threading.Thread):
                 fname = arr[-1]
                 path = '/home/ec2-user/files/' + fname
                 print(path)
-                try:
-                    s3.download_file(bucketName,fileName,path)
-                    print(fileName,"download completed.")
-                except botocore.exceptions.ClientError as e:
-                    if e.response['Error']['Code'] == "404":
-                        print("The object does not exist.")
-                    else:
-                        raise
+                if 'master' in path:
+                    try:
+                        s3.download_file(bucketName,fileName,path)
+                        print(fileName,"download completed.")
+                    except botocore.exceptions.ClientError as e:
+                        if e.response['Error']['Code'] == "404":
+                            print("The object does not exist.")
+                        else:
+                            raise
 
 	def consumeMessages(self, sqsQueueName=QUEUE_NAME):
 		numMsgs = 0
@@ -102,7 +104,11 @@ class SQSConsumer (threading.Thread):
                                         print(fileName)
                                         print(size)
                                         print(bucketName)
+                                        name = fileName.split('/')[-1].split('.')[0]
+                                        print('name' , name)
+                                        
                                         self.getFile(fileName,bucketName)
+                                        run(name)
 
 					# !!!! The example of excution of bashscript!!!!
                                         #filePath = "/mnt/s3mount/" + fileName
