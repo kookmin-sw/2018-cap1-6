@@ -9,7 +9,7 @@ import boto3
 
 QUEUE_NAME = "s3Queue"
 QUEUE_ATTR_NAME = "ApproximateNumberOfMessages"
-SLEEP = 10
+SLEEP = 5
 
 def Connect2sqs():
 	#Connect to SQS service
@@ -27,18 +27,16 @@ class SQSConsumer (threading.Thread):
 		self.counter = counter
 
 	def run(self):
-		print("SQSConsumer Thread running!")
-		maxRetry = 10000 # MAXIMUM 10000 tries
+		print(self.name+ " Thread running!")
 		numMsgs = 0
 		maxMsgs = self.getNumberOfMessages()
 		count = 0
-		print("No. of Messages to consume:", maxMsgs)
+		#print(self.name+"\'s Messages to consume:"+ maxMsgs)
 		while True:
 			time.sleep(SLEEP)
 			numMsgs += self.consumeMessages()
 			count += 1
-			print("Iteration No.:", count, numMsgs)
-		print("SQSConsumer Thread Stopped")
+			print(str(self.name) + " Iteration No.:" + str(count))
 		
 	def getQueue(self, sqsQueueName=QUEUE_NAME):
   #Get the SQS queue using the SQS resource object and QUEUE_NAME
@@ -46,7 +44,7 @@ class SQSConsumer (threading.Thread):
 		try:
 			queue = self.sqs.get_queue_by_name(QueueName=sqsQueueName)
 		except Exception as err:
-			print("Error Message {0}".format(err))
+			print(str(err))
 		return queue
 
 	def getNumberOfMessages(self):
@@ -59,7 +57,7 @@ class SQSConsumer (threading.Thread):
 				attribs = queue.attributes
 				numMessages = int(attribs.get(QUEUE_ATTR_NAME))
 		except Exception as err:
-			print("Error Message {0}".format(err))
+			print(str(err))
 		return numMessages
 
         def getFile(self,fileName,bucketName):
@@ -67,26 +65,22 @@ class SQSConsumer (threading.Thread):
                 arr = fileName.split('/')
                 fname = arr[-1]
                 path = '/home/ec2-user/files/' + fname
-                print(path)
-                if 'master' in path:
-                    try:
-                        s3.download_file(bucketName,fileName,path)
-                        print(fileName,"download completed.")
-                    except botocore.exceptions.ClientError as e:
-                        if e.response['Error']['Code'] == "404":
-                            print("The object does not exist.")
-                        else:
-                            raise
+                try:
+                    s3.download_file(bucketName,fileName,path)
+                    print(fileName+" download completed.")
+                except botocore.exceptions.ClientError as e:
+                    if e.response['Error']['Code'] == "404":
+                        print("The object does not exist.")
+                    else:
+                        raise
 
 	def consumeMessages(self, sqsQueueName=QUEUE_NAME):
 		numMsgs = 0
 		try:
 			queue = self.getQueue()
 			if queue:
-				mesgs =  queue.receive_messages(													
-										AttributeNames=['All'], MaxNumberOfMessages=10, WaitTimeSeconds=20)
+				mesgs =  queue.receive_messages(AttributeNames=['All'], MaxNumberOfMessages=10, WaitTimeSeconds=20)
 				if not len(mesgs):
-					print("There are no messages in Queue to display")
 					return numMsgs
 				for mesg in mesgs:		
 					# Retrieve the Attributes of a message.
@@ -101,45 +95,46 @@ class SQSConsumer (threading.Thread):
                                         fileName = jsonmsg["Records"][0]["s3"]["object"]["key"]
                                         size = jsonmsg["Records"][0]["s3"]["object"]["size"]
                                         bucketName = jsonmsg["Records"][0]["s3"]["bucket"]["name"]
-                                        print(fileName)
-                                        print(size)
-                                        print(bucketName)
                                         name = fileName.split('/')[-1].split('.')[0]
-                                        print('name' , name)
+                                        print(self.name + " get message!")
+                                        print("filename" + str(fileName) + " size " + str(size) + " bucketname " + str(bucketName) + " realname " + str(name) + " working start!")
                                         
+					self.deleteMessage(queue, mesg)
+					time.sleep(1)
                                         self.getFile(fileName,bucketName)
                                         run(name)
 
-					# !!!! The example of excution of bashscript!!!!
-                                        #filePath = "/mnt/s3mount/" + fileName
-                                        #subprocess.call(["./soma_aws.sh", filePath, "/mnt/s3output"])
 
-        	# Delete Message from the SQS queue
-					self.deleteMessage(queue, mesg)
-					time.sleep(1)
 				numMsgs = len(mesgs)
 		except Exception as err:
-			print("Error Message {0}".format(err))
+			print(str(err))
 		return numMsgs
 
 	def deleteMessage(self, queue, mesg):
 		try:
-			#Delete Message from the SQS queue
 			mesg.delete() 									
 			print("Message deleted from Queue")
 			return True
 		except Exception as err:
-			print("Error Message {0}".format(err))
+			print(str(err))
 		return False
 	
 def main():
 	try:
-		thread1 = SQSConsumer(1, "Thread-1", 1)
+		thread1 = SQSConsumer(1, "moonsang", 1)
+		thread2 = SQSConsumer(2, "hohyun", 1)
+		thread3 = SQSConsumer(3, "gunha", 1)
+		thread4 = SQSConsumer(4, "woondae", 1)
 		thread1.start()
+		thread2.start()
+		thread3.start()
+		thread4.start()
 	except Exception as err:
-		print("Error Message {0}".format(err))
+		print(str(err))
 	thread1.join()
-	return thread1
+	thread2.join()
+	thread3.join()
+	thread4.join()
 
 if __name__ == '__main__':
 	main()
