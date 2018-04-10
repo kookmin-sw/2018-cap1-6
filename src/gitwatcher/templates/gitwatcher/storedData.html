@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GitWatcher</title>
+</head>
+<body>
+
+	{% if mydict %}
+
+		{% for key,value in mydict.items %}
+			<p id="{{key}}"><h1>{{key}}</h1></p>
+			<table border="1">
+				<tr>
+					<th>branch</th>
+					<th>실행</th>
+				</tr>
+			{% for i in value %}
+				<tr>
+					<p id="{{i}}"><td>{{i}}</td></p>
+					<td><button onclick="result('{{key}}' , '{{i}}')">실행</button></td>
+				</tr>
+			{% endfor %}
+			</table>
+		{% endfor %}
+		
+	{% endif %}
+
+	<script type="text/javascript">
+		function result(repo, branch){
+			var url = 'storedData/kookmin-sw_';
+			url += repo + '_branch_';
+			url += branch;
+			location.href = url;
+		}
+	</script>
+</body>
+</html>

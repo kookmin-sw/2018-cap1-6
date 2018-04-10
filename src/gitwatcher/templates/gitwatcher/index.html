@@ -4,27 +4,23 @@
     <title>GitWathcer</title>
 </head>
 <body>
-    
-    <label>git repository url : https://github.com/       <input type="text" id="input"></label><br>
-    <input type="radio" name="option" value="git" checked="checked"/>git
-    <input type="radio" name="option" value="s3" />s3
-    <button onclick="input()">submit</button>
 
-    <script type="text/javascript">
-        function input(){
-            var obj = document.getElementsByName('option');
-            var url = document.getElementById("input").value;
-            if(obj[0].checked)
-            {
-                url += '/option1/submit';
-                location.href = url;
-            }
-            else
-            {
-                url += '/option2/submit';
-                location.href = url;
-            }
-        }
+  <h1>GitWatcher</h1>
+  <button onclick="button1()">clone해서 분석</button>
+  <button onclick="button2()">저장된 분석 결과 확인</button>
+
+  <script type="text/javascript">
+      function button1(){
+
+          url = '/clonegit';
+          location.href = url;
+
+      }
+
+      function button2(){
+          url = '/storedData';
+          location.href = url;
+      }
     </script>
 </body>
 </html>

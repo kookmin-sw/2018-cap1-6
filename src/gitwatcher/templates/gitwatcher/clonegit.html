@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitWathcer</title>
+</head>
+<body>
+    
+    <label>git repository url       : https://github.com/       <input type="text" id="input"></label><br>
+    <button onclick="input()">submit</button>
+
+    <script type="text/javascript">
+        function input(){
+        	var url = '/clonegit/'
+            url += document.getElementById("input").value;
+
+            url += '/result';
+            location.href = url;
+
+        }
+    </script>
+
+</body>
+</html>
