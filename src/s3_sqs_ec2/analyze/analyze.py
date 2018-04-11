@@ -1,13 +1,15 @@
 import os
 
 home = os.path.expanduser("~")
-gipath = os.getcwd() + '/analyze/gitinspector/gitinspector.py'
-# name = 'kookmin-sw_2018-cap1-6_branch_master'
+gipath = '/home/ec2-user/main/2018-cap1-6/src/s3_sqs_ec2/analyze/gitinspector/gitinspector.py'
+name = 'kookmin-sw_2018-cap1-6_branch_master'
 
 def analyze(name):
     fpath = home + '/files/' + name
     fname = name + '.html' 
     order = gipath + ' ' + fpath + ' -F html --grading > ' + home + '/files/html/' + fname
+    
+    print(order)
 
     try:
         os.system(order)
