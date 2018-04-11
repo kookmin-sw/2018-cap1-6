@@ -1,23 +1,44 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-<html>
-<head>
-    <title>GitWathcer</title>
-</head>
-<body>
-    
-    <label>git repository url       : https://github.com/       <input type="text" id="input"></label><br>
-    <button onclick="input()">submit</button>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
 
-    <script type="text/javascript">
-        function input(){
-        	var url = '/clonegit/'
-            url += document.getElementById("input").value;
+    <title>GET Github URL</title>
 
-            url += '/result';
-            location.href = url;
+    <!-- Bootstrap core CSS -->
+    <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">
 
-        }
-    </script>
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+  </head>
+  <body class="text-center" style="background-color:#F5F5DC;">
+    <div style="position:absolute; left:50%; top:50%; margin-left:-250px; margin-top:-250px; width:500px; height:500px;">
+      <img class="mb-4" src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please Type Your Git repository URL</h1>
+      <label>https://github.com/       <input type="text" id="input" placeholder="URL of your Github" style="display:inline;" required autofocus></label>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button onclick="input()" class="btn btn-lg btn-primary">submit</button>
 
-</body>
+      <script type="text/javascript">
+          function input(){
+          	var url = '/clonegit/'
+              url += document.getElementById("input").value;
+
+              url += '/result';
+              location.href = url;
+
+          }
+      </script>
+      <p class="mt-5 mb-3 text-muted">&copy; Gitwatcher, 2018</p>
+    </div>
+  </body>
 </html>
