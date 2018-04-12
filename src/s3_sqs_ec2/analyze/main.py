@@ -6,11 +6,11 @@ from delete import delete
 
 def main(name):
     unzip(name)
-    print('unzip completed')
+    print(name+" unzip completed")
     analyze(name)
-    print('analyze completed')
+    print(name+" analyze completed")
     delete(name)
-    print('delete completed')
+    print(name+" delete completed")
 
 
 if __name__ == "__main__":
