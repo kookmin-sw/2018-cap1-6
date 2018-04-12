@@ -9,11 +9,11 @@
 ### 2. 팀 소개
  저희 팀은 이경용 교수님과 4명의 학부생으로 이루어져 있습니다.
  
- <img src="/image/team_pic.jpg" width="300px" height="auto">
+ <img src="https://github.com/kookmin-sw/2018-cap1-6/image/team_pic.jpg" width="300px" height="auto">
  
  지도교수님 : 이경용 교수님
  - 전호현(팀장)
- <img src="/image/hohyun.jpg" width="200px" height="auto">
+ <img src="https://github.com/kookmin-sw/2018-cap1-6/image/hohyun.jpg" width="200px" height="auto">
  
  ```
  * 학번: 20132926
@@ -22,7 +22,7 @@
  ```
  
  - 최원대
- <img src="/image/wondae.jpg" width="200px" height="auto">
+ <img src="https://github.com/kookmin-sw/2018-cap1-6/image/wondae.jpg" width="200px" height="auto">
  
   ```
  * 학번: 20132937
@@ -31,7 +31,7 @@
  ```
  
  - 유문상
- <img src="/image/moonsang.jpg" width="200px" height="auto">
+ <img src="https://github.com/kookmin-sw/2018-cap1-6/image/moonsang.jpg" width="200px" height="auto">
  
  ```
  * 학번: 20123075
@@ -40,7 +40,7 @@
  ```
  
  - 이근하
- <img src="/image/geunha.jpg" width="200px" height="auto">
+ <img src="https://github.com/kookmin-sw/2018-cap1-6/image/geunha.jpg" width="200px" height="auto">
 
  ```
  * 학번: 20123079
