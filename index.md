@@ -13,6 +13,7 @@
  
  지도교수님 : 이경용 교수님
  - 전호현(팀장)
+ 
  <img src="https://github.com/kookmin-sw/2018-cap1-6/raw/master/image/hohyun.jpg" width="200px" height="auto">
  
  ```
@@ -22,6 +23,7 @@
  ```
  
  - 최원대
+ 
  <img src="https://github.com/kookmin-sw/2018-cap1-6/raw/master/image/wondae.jpg" width="200px" height="auto">
  
   ```
@@ -31,6 +33,7 @@
  ```
  
  - 유문상
+ 
  <img src="https://github.com/kookmin-sw/2018-cap1-6/raw/master/image/moonsang.jpg" width="200px" height="auto">
  
  ```
@@ -40,6 +43,7 @@
  ```
  
  - 이근하
+ 
  <img src="https://github.com/kookmin-sw/2018-cap1-6/raw/master/image/geunha.jpg" width="200px" height="auto">
 
  ```
