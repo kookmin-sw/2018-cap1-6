@@ -61,7 +61,13 @@ and we're trying to make web service offer this information to help the user to 
 
 ### 4. 소개 영상
 
-추후 업로드 예정
+ - 수행계획 영상
+ 
+ [![image](image/수행계획Thumbnail.jpg)](https://youtu.be/QvpxCjbw0fk)
+ 
+ - 중간결과 시연영상
+ 
+ [![image](image/중간시연영상Thumbnail.png)](https://youtu.be/150V6K1kyL8)
 
 ### 5. 결과 영상
 
