@@ -9,11 +9,44 @@
 ### 2. 팀 소개
  저희 팀은 이경용 교수님과 4명의 학부생으로 이루어져 있습니다.
  
+ <img src="/image/team_pic.jpg" width="300px" height="auto">
+ 
  지도교수님 : 이경용 교수님
-- 전호현
-- 최원대
-- 유문상
-- 이근하
+ - 전호현(팀장)
+ <img src="/image/hohyun.jpg" width="200px" height="auto">
+ 
+ ```
+ * 학번: 20132926
+ * 역할: Git inspector 기능 개선 및 웹 페이지 제작
+ * E-mail: jhh5154@naver.com
+ ```
+ 
+ - 최원대
+ <img src="/image/wondae.jpg" width="200px" height="auto">
+ 
+  ```
+ * 학번: 20132937
+ * 역할: Frontend AWS EC2 Server 담당
+ * E-mail: ryunhoo123@gmail.com
+ ```
+ 
+ - 유문상
+ <img src="/image/moonsang.jpg" width="200px" height="auto">
+ 
+ ```
+ * 학번: 20123075
+ * 역할: AWS를 이용한 Back-end 구성(AWS Lambda, S3)
+ * E-mail: anstkd07@gmail.com
+ ```
+ 
+ - 이근하
+ <img src="/image/geunha.jpg" width="200px" height="auto">
+
+ ```
+ * 학번: 20123079
+ * 역할: Git inspector 기능 개선 및 코드 분석 
+ * E-mail: ygh1kr@gmail.com
+ ```
 
 ### 3. Abstract
 
