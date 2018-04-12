@@ -9,7 +9,6 @@ def analyze(name):
     fname = name + '.html' 
     order = gipath + ' ' + fpath + ' -F html --grading > ' + home + '/files/html/' + fname
     
-    print(order)
 
     try:
         os.system(order)

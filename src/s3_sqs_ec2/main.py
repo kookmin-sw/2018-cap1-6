@@ -6,10 +6,12 @@ import json
 import subprocess
 import botocore
 import boto3
+import sys
 
 QUEUE_NAME = "s3Queue"
 QUEUE_ATTR_NAME = "ApproximateNumberOfMessages"
-SLEEP = 5
+SLEEP = 10
+
 
 def Connect2sqs():
 	#Connect to SQS service
@@ -27,7 +29,7 @@ class SQSConsumer (threading.Thread):
 		self.counter = counter
 
 	def run(self):
-		print(self.name+ " Thread running!")
+		#print(self.name+ " Thread running!")
 		numMsgs = 0
 		maxMsgs = self.getNumberOfMessages()
 		count = 0
@@ -36,7 +38,7 @@ class SQSConsumer (threading.Thread):
 			time.sleep(SLEEP)
 			numMsgs += self.consumeMessages()
 			count += 1
-			print(str(self.name) + " Iteration No.:" + str(count))
+			#print(str(self.name) + " Iteration No.:" + str(count))
 		
 	def getQueue(self, sqsQueueName=QUEUE_NAME):
   #Get the SQS queue using the SQS resource object and QUEUE_NAME
@@ -96,13 +98,15 @@ class SQSConsumer (threading.Thread):
                                         size = jsonmsg["Records"][0]["s3"]["object"]["size"]
                                         bucketName = jsonmsg["Records"][0]["s3"]["bucket"]["name"]
                                         name = fileName.split('/')[-1].split('.')[0]
+                                        print("------------------------------------------------------------")
                                         print(self.name + " get message!")
-                                        print("filename" + str(fileName) + " size " + str(size) + " bucketname " + str(bucketName) + " realname " + str(name) + " working start!")
+                                        print("filename " + str(fileName) + " at bucketname " + str(bucketName) + " working start!")
                                         
 					self.deleteMessage(queue, mesg)
 					time.sleep(1)
                                         self.getFile(fileName,bucketName)
                                         run(name)
+                                        print("--------------------analyze finished!--------------")
 
 
 				numMsgs = len(mesgs)
@@ -113,13 +117,17 @@ class SQSConsumer (threading.Thread):
 	def deleteMessage(self, queue, mesg):
 		try:
 			mesg.delete() 									
-			print("Message deleted from Queue")
+			print("this Message deleted from Queue")
 			return True
 		except Exception as err:
 			print(str(err))
 		return False
 	
 def main():
+        #orig_stdout = sys.stdout
+        #f = open('log.txt', 'w')
+        #sys.stdout = f
+
 	try:
 		thread1 = SQSConsumer(1, "moonsang", 1)
 		thread2 = SQSConsumer(2, "hohyun", 1)
@@ -129,6 +137,7 @@ def main():
 		thread2.start()
 		thread3.start()
 		thread4.start()
+                print("4 thread started!")
 	except Exception as err:
 		print(str(err))
 	thread1.join()
@@ -136,6 +145,8 @@ def main():
 	thread3.join()
 	thread4.join()
 
+        #sys.stdout = orig_stdout
+        #f.close()
 if __name__ == '__main__':
 	main()
 
