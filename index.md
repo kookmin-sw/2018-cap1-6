@@ -9,12 +9,11 @@
 ### 2. 팀 소개
  저희 팀은 이경용 교수님과 4명의 학부생으로 이루어져 있습니다.
  
- <img src="https://github.com/kookmin-sw/2018-cap1-6/raw/master/image/team_pic.jpg" width="300px" height="auto">
+ <img src="/image/team_pic.jpg" width="300px" height="auto">
  
  지도교수님 : 이경용 교수님
  - 전호현(팀장)
- 
- <img src="https://github.com/kookmin-sw/2018-cap1-6/raw/master/image/hohyun.jpg" width="200px" height="auto">
+ <img src="/image/hohyun.jpg" width="200px" height="auto">
  
  ```
  * 학번: 20132926
@@ -23,8 +22,7 @@
  ```
  
  - 최원대
- 
- <img src="https://github.com/kookmin-sw/2018-cap1-6/raw/master/image/wondae.jpg" width="200px" height="auto">
+ <img src="/image/wondae.jpg" width="200px" height="auto">
  
   ```
  * 학번: 20132937
@@ -33,8 +31,7 @@
  ```
  
  - 유문상
- 
- <img src="https://github.com/kookmin-sw/2018-cap1-6/raw/master/image/moonsang.jpg" width="200px" height="auto">
+ <img src="/image/moonsang.jpg" width="200px" height="auto">
  
  ```
  * 학번: 20123075
@@ -43,8 +40,7 @@
  ```
  
  - 이근하
- 
- <img src="https://github.com/kookmin-sw/2018-cap1-6/raw/master/image/geunha.jpg" width="200px" height="auto">
+ <img src="/image/geunha.jpg" width="200px" height="auto">
 
  ```
  * 학번: 20123079
@@ -65,7 +61,13 @@ and we're trying to make web service offer this information to help the user to 
 
 ### 4. 소개 영상
 
-추후 업로드 예정
+ - 수행계획 영상
+ 
+ [![image](image/수행계획Thumbnail.jpg)](https://youtu.be/QvpxCjbw0fk)
+ 
+ - 중간결과 시연영상
+ 
+ [![image](image/중간시연영상Thumbnail.png)](https://youtu.be/150V6K1kyL8)
 
 ### 5. 결과 영상
 
