@@ -50,14 +50,14 @@
 
 ### 3. Abstract
 
-**The service which helps the user to use Github repository efficiently by analyzing it.**
+**This is a service which helps the user use Github's repository efficiently by analyzing it.**
 
-It is essential to use version control system for developing scalable software.
-Therefore, a software developer has to use version control system efficiently.
-If so, could we analyze existing software project that used version control system
-and offer this information to the user for their better use of version control system?
-Our team focuses on analyzing the software project that uses Github, which is the most general version control system, 
-and we're trying to make web service offer this information to help the user to use Github more efficiently. 
+It is essential to use a version control system to develop a scalable software.
+Therefor, a software developer has to be knowledgeable and is able to use version control systems
+effciently. If so, could we analyze an existing software that uses a version control system and offer
+this information to the user for them to be able to use the version control systems better?
+Our team focuses on analyzing a software that uses Github, which is the most general version control
+system, and we are trying to make web services offer this information to help users use Github more efficiently.
 
 ### 4. 소개 영상
 
