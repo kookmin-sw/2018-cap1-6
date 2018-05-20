@@ -1,15 +1,13 @@
 #-*- coding: utf-8 -*-
-import sys
 import json
-import urllib2
-
-reload(sys)
-sys.setdefaultencoding('utf-8')
+import requests
 
 tnum = input("insert the team number : ")
 team = "2018-cap1-" + str(tnum)
 url = "https://api.github.com/repos/kookmin-sw/" + team + "/issues/comments?per_page=100"
-comments = json.load(urllib2.urlopen(url))
+response = requests.get(url)
+comments = response.json()
+link = response.headers.get('link', None)
 
 #총 issue 갯수
 totalnum = len(comments)
@@ -27,3 +25,5 @@ for i in range(len(comments)):
 
 print("per user comment number : ", a)
 
+if link is not None:
+    print(link)
