@@ -12,9 +12,12 @@ i.go(tnum)
 ce = Comment()
 ce.go(tnum)
 
-print("commit : ",ci.totalnum)
-print("commit per user",ci.a)
-print("issue : ",i.totalnum)
-print("issue per user",i.a)
-print("comment : ",ce.totalnum)
-print("comment per user",ce.a)
+bunmo = ci.totalnum + i.totalnum + ce.totalnum
+
+for k in i.a.keys():
+    commitnum = ci.a[k]
+    issuenum = i.a[k]
+    commentnum = ce.a[k]
+    bunja = commitnum + issuenum + commentnum
+    result = bunja / bunmo * 100
+    print(k," 's score : ", result)
