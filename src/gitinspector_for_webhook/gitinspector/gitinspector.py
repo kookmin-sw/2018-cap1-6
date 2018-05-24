@@ -40,6 +40,7 @@ from .output.responsibilitiesoutput import ResponsibilitiesOutput
 from .output.timelineoutput import TimelineOutput
 from .output.AverageChangesoutput import AverageChangesOutput
 from .output.LowLineChangesoutput import LowLineChangesOutput
+from .output.graphoutput import graphoutput
 
 localization.init()
 
@@ -66,11 +67,11 @@ class Runner(object):
         summed_blames = Blame.__new__(Blame)
         summed_changes = Changes.__new__(Changes)
         summed_metrics = MetricsLogic.__new__(MetricsLogic)
-        summed_low_change = LowChanges.__new__(LowChanges) #추가
+        #summed_low_change = LowChanges.__new__(LowChanges) #추가
 
         os.chdir(repos[0].location)  #추가
-        low_change = LowChanges(repos)  #추가
-        summed_low_change = low_change  #추가
+        #low_change = LowChanges(repos)  #추가
+        #summed_low_change = low_change  #추가
         os.chdir(previous_directory)  #추가
 
         for repo in repos:
@@ -108,7 +109,8 @@ class Runner(object):
 
             if self.list_file_types:
                 outputable.output(ExtensionsOutput())
-            outputable.output(LowLineChangesOutput(summed_low_change))  #추가
+            #outputable.output(LowLineChangesOutput(summed_low_change))  #추가
+            outputable.output(graphoutput())  #add
 
         format.output_footer()
         os.chdir(previous_directory)
