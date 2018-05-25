@@ -8,16 +8,24 @@ import botocore
 import boto3
 import sys
 import datetime
+import logging
 
 QUEUE_NAME = "s3Queue"
 QUEUE_ATTR_NAME = "ApproximateNumberOfMessages"
 SLEEP = 10
 
+mylogger = logging.getLogger("my")
+mylogger.setLevel(logging.INFO)
+
+stream_hander = logging.StreamHandler()
+mylogger.addHandler(stream_hander)
+
+file_handler = logging.FileHandler('my.log')
+mylogger.addHandler(file_handler)
 
 def Connect2sqs():
 	#Connect to SQS service
 	return utils.connect2Service('sqs')
-
 
 #The SQSConsumer class retrieves messages from an SQS queue.
 class SQSConsumer (threading.Thread):
@@ -30,16 +38,16 @@ class SQSConsumer (threading.Thread):
 		self.counter = counter
 
 	def run(self):
-		#print(self.name+ " Thread running!")
+		#mylogger.info(self.name+ " Thread running!")
 		numMsgs = 0
 		maxMsgs = self.getNumberOfMessages()
 		count = 0
-		#print(self.name+"\'s Messages to consume:"+ maxMsgs)
+		#mylogger.info(self.name+"\'s Messages to consume:"+ maxMsgs)
 		while True:
 			time.sleep(SLEEP)
 			numMsgs += self.consumeMessages()
 			count += 1
-			#print(str(self.name) + " Iteration No.:" + str(count))
+			#mylogger.info(str(self.name) + " Iteration No.:" + str(count))
 		
 	def getQueue(self, sqsQueueName=QUEUE_NAME):
   #Get the SQS queue using the SQS resource object and QUEUE_NAME
@@ -47,7 +55,7 @@ class SQSConsumer (threading.Thread):
 		try:
 			queue = self.sqs.get_queue_by_name(QueueName=sqsQueueName)
 		except Exception as err:
-			print(str(err))
+			mylogger.info(str(err))
 		return queue
 
 	def getNumberOfMessages(self):
@@ -60,7 +68,7 @@ class SQSConsumer (threading.Thread):
 				attribs = queue.attributes
 				numMessages = int(attribs.get(QUEUE_ATTR_NAME))
 		except Exception as err:
-			print(str(err))
+			mylogger.info(str(err))
 		return numMessages
 
         def getFile(self,fileName,bucketName):
@@ -70,10 +78,10 @@ class SQSConsumer (threading.Thread):
                 path = '/home/ec2-user/files/' + fname
                 try:
                     s3.download_file(bucketName,fileName,path)
-                    print(fileName+" download completed.")
+                    mylogger.info(fileName+" download completed.")
                 except botocore.exceptions.ClientError as e:
                     if e.response['Error']['Code'] == "404":
-                        print("The object does not exist.")
+                        mylogger.info("The object does not exist.")
                     else:
                         raise
 
@@ -99,32 +107,32 @@ class SQSConsumer (threading.Thread):
                                         size = jsonmsg["Records"][0]["s3"]["object"]["size"]
                                         bucketName = jsonmsg["Records"][0]["s3"]["bucket"]["name"]
                                         name = fileName.split('/')[-1].split('.')[0]
-                                        print("------------------------------------------------------------")
+                                        mylogger.info("------------------------------------------------------------")
                                         today = datetime.datetime.now()
                                         date = today.strftime("%Y.%m.%d %H:%M:%S")
-                                        print(date)
-                                        print(self.name + " get message!")
-                                        print("filename " + str(fileName) + " at bucketname " + str(bucketName) + " working start!")
+                                        mylogger.info(date)
+                                        mylogger.info(self.name + " get message!")
+                                        mylogger.info("filename " + str(fileName) + " at bucketname " + str(bucketName) + " working start!")
                                         
 					self.deleteMessage(queue, mesg)
 					time.sleep(1)
                                         self.getFile(fileName,bucketName)
                                         run(name)
-                                        print("--------------------analyze finished!--------------")
+                                        mylogger.info("--------------------analyze finished!--------------")
 
 
 				numMsgs = len(mesgs)
 		except Exception as err:
-			print(str(err))
+			mylogger.info(str(err))
 		return numMsgs
 
 	def deleteMessage(self, queue, mesg):
 		try:
 			mesg.delete() 									
-			print("this Message deleted from Queue")
+			mylogger.info("this Message deleted from Queue")
 			return True
 		except Exception as err:
-			print(str(err))
+			mylogger.info(str(err))
 		return False
 	
 def main():
@@ -141,9 +149,9 @@ def main():
 		thread2.start()
 		thread3.start()
 		thread4.start()
-                print("4 thread started!")
+                mylogger.info("4 thread started!")
 	except Exception as err:
-		print(str(err))
+		mylogger.info(str(err))
 	thread1.join()
 	thread2.join()
 	thread3.join()
