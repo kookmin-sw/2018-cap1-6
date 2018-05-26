@@ -29,9 +29,9 @@ from .localization import N_
 from . import extensions, filtering, format, interval, terminal
 import json # 추가
 import requests # 추가
-from .change_comments import Comment  #추가
-from .change_issue import Issue #추가
-from .change_commit import Commit #추가
+from .changes_comments import Comment  #추가
+from .changes_issue import Issue #추가
+from .changes_commit import Commit #추가
 
 CHANGES_PER_THREAD = 200
 NUM_THREADS = multiprocessing.cpu_count()
@@ -233,7 +233,7 @@ class Changes(object):
 			score_per_user[k] = result
 
 		# 여기까지 score 추가
-		
+
 		self.url = self.url + repos_string + "/issues?state=all&per_page=100&page=1"
 
 		while True:
