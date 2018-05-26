@@ -68,7 +68,7 @@ class Runner(object):
         summed_blames = Blame.__new__(Blame)
         summed_changes = Changes.__new__(Changes)
         summed_metrics = MetricsLogic.__new__(MetricsLogic)
-        #summed_low_change = LowChanges.__new__(LowChanges) #추가
+        summed_low_change = LowChanges.__new__(LowChanges) #추가
 
         os.chdir(repos[0].location)  #추가
         low_change = LowChanges(repos)  #추가
