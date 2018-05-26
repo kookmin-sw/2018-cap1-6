@@ -31,7 +31,7 @@ import json # 추가
 import requests # 추가
 from .changes_comments import Comment  #추가
 from .changes_issue import Issue #추가
-from .changes_commit import Commit #추가
+from .changes_commit import MyCommit #추가
 
 CHANGES_PER_THREAD = 200
 NUM_THREADS = multiprocessing.cpu_count()
@@ -213,7 +213,7 @@ class Changes(object):
 		ce = Comment()
 		ce.go(repos_string)
 
-		ci = Commit()
+		ci = MyCommit()
 		ci.go(repos_string)
 
 		bunmo = ci.totalnum + i.totalnum + ce.totalnum
@@ -230,7 +230,7 @@ class Changes(object):
 
 			bunja = commitnum + issuenum + commentnum
 			result = bunja / bunmo * 100
-			score_per_user[k] = result
+			self.score_per_user[k] = result
 
 		# 여기까지 score 추가
 
