@@ -29,6 +29,9 @@ from .localization import N_
 from . import extensions, filtering, format, interval, terminal
 import json # 추가
 import requests # 추가
+from .change_comments import Comment  #추가
+from .change_issue import Issue #추가
+from .change_commit import Commit #추가
 
 CHANGES_PER_THREAD = 200
 NUM_THREADS = multiprocessing.cpu_count()
@@ -186,6 +189,7 @@ class Changes(object):
 	total_num = 0 # 추가
 	per_user = {} # 추가
 	url = "https://api.github.com/repos/kookmin-sw/" # 추가
+	score_per_user = {} # score 부분 추가
 
 	def __init__(self, repo, hard):
 		self.commits = []
@@ -201,6 +205,35 @@ class Changes(object):
 		repos_string = repo.name
 		repos_string = repos_string.split("_")
 		repos_string = repos_string[1]
+
+		# score 부분 추가
+		i = Issue()
+		i.go(repos_string)
+
+		ce = Comment()
+		ce.go(repos_string)
+
+		ci = Commit()
+		ci.go(repos_string)
+
+		bunmo = ci.totalnum + i.totalnum + ce.totalnum
+
+		for k in i.a.keys():
+			if k in ci.a.keys():
+				commitnum = ci.a[k]
+
+			if k in i.a.keys():
+				issuenum = i.a[k]
+
+			if k in ce.a.keys():
+				commentnum = ce.a[k]
+
+			bunja = commitnum + issuenum + commentnum
+			result = bunja / bunmo * 100
+			score_per_user[k] = result
+
+		# 여기까지 score 추가
+		
 		self.url = self.url + repos_string + "/issues?state=all&per_page=100&page=1"
 
 		while True:

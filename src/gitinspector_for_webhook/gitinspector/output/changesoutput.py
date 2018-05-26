@@ -45,8 +45,8 @@ class ChangesOutput(Outputable):
 
 		if authorinfo_list:
 			changes_xml += "<p>" + _(HISTORICAL_INFO_TEXT) + ".</p><div><table id=\"changes\" class=\"git\">"
-			changes_xml += "<thead><tr> <th>{0}</th> <th>{1}</th> <th>{2}</th> <th>{3}</th> <th>{4}</th> <th>{5}</th>".format(
-			               _("Author"), _("Commits"), _("Insertions"), _("Deletions"), _("% of changes"), _("Issues"))
+			changes_xml += "<thead><tr> <th>{0}</th> <th>{1}</th> <th>{2}</th> <th>{3}</th> <th>{4}</th> <th>{5}</th> <th>{6}</th>".format(
+			               _("Author"), _("Commits"), _("Insertions"), _("Deletions"), _("% of changes"), _("Issues"), _("Score"))
 			changes_xml += "</tr></thead><tbody>"
 
 			for i, entry in enumerate(sorted(authorinfo_list)):
@@ -66,13 +66,14 @@ class ChangesOutput(Outputable):
 				changes_xml += "<td>" + str(authorinfo.deletions) + "</td>"
 				changes_xml += "<td>" + "{0:.2f}".format(percentage) + "</td>"
 				changes_xml += "<td>" + "{0}".format(self.changes.per_user[entry] if entry in self.changes.per_user else 0) + "</td>"
+				changes_xml += "<td>" + "{0:.2f}".format(self.changes.score_per_user[entry] if entry in self.changes.score_per_user else 0) + "</td>"
 				changes_xml += "</tr>"
 				chart_data += "{{label: {0}, data: {1}}}".format(json.dumps(entry), "{0:.2f}".format(percentage))
 
 				if sorted(authorinfo_list)[-1] != entry:
 					chart_data += ", "
 
-			changes_xml += ("<tfoot><tr> <td colspan=\"6\">&nbsp;</td> </tr></tfoot></tbody></table>")
+			changes_xml += ("<tfoot><tr> <td colspan=\"7\">&nbsp;</td> </tr></tfoot></tbody></table>")
 			changes_xml += "<div class=\"chart\" id=\"changes_chart\"></div></div>"
 			changes_xml += "<script type=\"text/javascript\">"
 			changes_xml += "    changes_plot = $.plot($(\"#changes_chart\"), [{0}], {{".format(chart_data)

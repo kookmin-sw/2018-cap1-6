@@ -28,7 +28,7 @@ from .changes import Changes
 from .low_changes import LowChanges # 추가
 from .config import GitConfig
 from .metrics import MetricsLogic
-from .score import Score # 추가
+#from .score import Score # 추가
 from . import (basedir, clone, extensions, filtering, format, help, interval,
                localization, optval, terminal, version)
 from .output import outputable
