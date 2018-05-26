@@ -54,17 +54,16 @@ class ScoreMonth(object):
                 else:
                     months_score[i] = {j:result}
 
+        for i in months_score:
+            del months_score[i]["gychoics"]
+            
         for i in months_score['05']:
-            if i == "gychoics":
-                continue
             data = "," + "{0}".format(i)
             f.write(data)
         data = "\n"
         f.write(data)
 
         for i in months_score:
-            if i == "gychoics":
-                continue
             data = i
             f.write(data)
             for j in months_score[i]:

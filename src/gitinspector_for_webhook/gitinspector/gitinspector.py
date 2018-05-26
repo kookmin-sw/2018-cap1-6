@@ -113,8 +113,8 @@ class Runner(object):
 
             if self.list_file_types:
                 outputable.output(ExtensionsOutput())
-            #outputable.output(LowLineChangesOutput(summed_low_change))  #추가
-            outputable.output(graphoutput())  #add
+            outputable.output(LowLineChangesOutput(summed_low_change))  #추가
+        #    outputable.output(graphoutput())  #add
 
         format.output_footer()
         os.chdir(previous_directory)
