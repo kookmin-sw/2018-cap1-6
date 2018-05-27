@@ -190,11 +190,15 @@ def lambda_handler(event, context):
     pull_repo(repo, branch_name, remote_url, creds)
     zipfile = zip_repo(repo_path, repo_name)
     push_s3(zipfile, repo_name, outputbucket)
-    if cleanup:
-        logger.info('Cleanup Lambda container...')
-        shutil.rmtree(repo_path)
-        os.remove(zipfile)
-        os.remove('/tmp/id_rsa')
-        os.remove('/tmp/id_rsa.pub')
+
+    logger.info('Cleanup Lambda container...')
+    shutil.rmtree(repo_path)
+    os.remove(zipfile)
+    # if cleanup:
+    #     logger.info('Cleanup Lambda container...')
+    #     shutil.rmtree(repo_path)
+    #     os.remove(zipfile)
+    #     os.remove('/tmp/id_rsa')
+    #     os.remove('/tmp/id_rsa.pub')
     return 'Successfully updated %s' % repo_name
 
