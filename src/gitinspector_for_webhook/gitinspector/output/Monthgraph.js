@@ -17,7 +17,7 @@ var y = d3.scaleLinear()
 var z = d3.scaleOrdinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
 
-d3.csv("gitinspector/output/data.csv", function(d, i, columns) {
+d3.csv("gitinspector/output/scoreMonth.csv", function(d, i, columns) {
 	for (var i = 1, n = columns.length; i < n; ++i) {
 		d[columns[i]] = +d[columns[i]];
 		console.log(d)

@@ -28,7 +28,8 @@ from .changes import Changes
 from .low_changes import LowChanges # 추가
 from .config import GitConfig
 from .metrics import MetricsLogic
-from .score import Score # 추가
+#from .score import Score # 추가
+from .score_month import ScoreMonth # 추가
 from . import (basedir, clone, extensions, filtering, format, help, interval,
                localization, optval, terminal, version)
 from .output import outputable
@@ -73,7 +74,8 @@ class Runner(object):
         os.chdir(repos[0].location)  #추가
         low_change = LowChanges(repos)  #추가
         summed_low_change = low_change  #추가
-        score = Score(repos) # 추가
+        #score = Score(repos) # 추가
+        score_month = ScoreMonth(repos)
         os.chdir(previous_directory)  #추가
 
         for repo in repos:

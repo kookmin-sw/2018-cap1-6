@@ -2,7 +2,7 @@
 import json
 import requests
 
-class Commit:
+class MyCommit:
     totalnum = 0
     a = {}
     def go(self,tnum):
@@ -14,17 +14,17 @@ class Commit:
             commits = response.json()
             link = response.headers.get('link', None)
         #총 갯수
-            Commit.totalnum += len(commits)
+            MyCommit.totalnum += len(commits)
 
         #유져 별 갯수
             for i in range(len(commits)):
                 if commits[i]['author'] is None:
                     continue
                 name = commits[i]["author"]['login']
-                if name in Commit.a:
-                    Commit.a[name] = Commit.a[name] + 1
+                if name in MyCommit.a:
+                    MyCommit.a[name] = MyCommit.a[name] + 1
                 else:
-                    Commit.a[name] = 1
+                    MyCommit.a[name] = 1
 
             if link is not None:
                 links = link.split(',')
