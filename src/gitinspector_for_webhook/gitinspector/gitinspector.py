@@ -28,7 +28,6 @@ from .changes import Changes
 from .low_changes import LowChanges # 추가
 from .config import GitConfig
 from .metrics import MetricsLogic
-#from .score import Score # 추가
 from .score_month import ScoreMonth # 추가
 from . import (basedir, clone, extensions, filtering, format, help, interval,
                localization, optval, terminal, version)
@@ -74,8 +73,7 @@ class Runner(object):
         os.chdir(repos[0].location)  #추가
         low_change = LowChanges(repos)  #추가
         summed_low_change = low_change  #추가
-        #score = Score(repos) # 추가
-        score_month = ScoreMonth(repos)
+        score_month = ScoreMonth(repos, previous_directory)
         os.chdir(previous_directory)  #추가
 
         for repo in repos:
@@ -114,7 +112,7 @@ class Runner(object):
             if self.list_file_types:
                 outputable.output(ExtensionsOutput())
             outputable.output(LowLineChangesOutput(summed_low_change))  #추가
-        #    outputable.output(graphoutput())  #add
+            outputable.output(graphoutput())  #add
 
         format.output_footer()
         os.chdir(previous_directory)

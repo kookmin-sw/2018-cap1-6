@@ -1,14 +1,17 @@
 from .score_commit import Commit
 from .score_issue import MyIssue
 from .score_comments import Comment
+import os
 
 class ScoreMonth(object):
-    def __init__(self, repos):
+    def __init__(self, repos, previous_directory):
         repos_string = ", ".join([repo.name for repo in repos])
         repos_string = repos_string.split("_")
         repos_string = repos_string[1]
 
-        f = open("scoreMonth.csv",'w')
+        os.chdir(previous_directory)
+
+        f = open("gitinspector\\output\\scoreMonth.csv",'w')
         data = "State"
         f.write(data)
 
@@ -56,7 +59,7 @@ class ScoreMonth(object):
 
         for i in months_score:
             del months_score[i]["gychoics"]
-            
+
         for i in months_score['05']:
             data = "," + "{0}".format(i)
             f.write(data)
