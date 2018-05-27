@@ -26,7 +26,8 @@ class LowLineChangesOutput(Outputable):
                 tmp_link = self.low_change.link + key[0:7]
                 changes_xml += "<td><a href=\"{0}\" target=\"_blank\"> Click </a></td>".format(tmp_link)
                 changes_xml += "</tr>"
+            changes_xml += "</tbody></table>"
         else:
             changes_xml += "<p>" + _(NO_INFO_TEXT) + ".</p>"
-        changes_xml += "</div></div>"
+        changes_xml += "</div></div></div>"
         print(changes_xml)
