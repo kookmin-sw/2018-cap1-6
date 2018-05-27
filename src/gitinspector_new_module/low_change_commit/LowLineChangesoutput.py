@@ -1,5 +1,9 @@
 from ..localization import N_
 from .outputable import Outputable
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 INFO_TEXT = N_("Commit that has low line changes")
 NO_INFO_TEXT = N_("Repository has no commit that has low line changes")
