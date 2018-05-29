@@ -71,4 +71,4 @@ system, and we are trying to make web services offer this information to help us
 
 ### 5. 결과 영상
 
-추후 업로드 예정
+[![image](image/최종발표thumbnail.png)](https://youtu.be/QCD2_aA7SQw)
