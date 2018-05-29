@@ -1,0 +1,403 @@
+# Copyright © 2012-2014 Ejwa Software. All rights reserved.
+#
+# This file is part of gitinspector.
+#
+# gitinspector is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# gitinspector is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with gitinspector. If not, see <http://www.gnu.org/licenses/>.
+#
+# This file was generated with the following command:
+#
+# xgettext --no-wrap -s -w 140 --language=Python --keyword="N_"
+# --no-location --output=messages.pot *.py
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gitinspector 0.5.0dev\n"
+"Report-Msgid-Bugs-To: gitinspector@ejwa.se\n"
+"POT-Creation-Date: 2014-11-29 05:20+0100\n"
+"PO-Revision-Date: 2018-05-22 16:46+0900\n"
+"Last-Translator: one10004 \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Language: ko\n"
+
+#, python-format
+msgid "% in comments"
+msgstr "주석 비율"
+
+#, python-format
+msgid "% of changes"
+msgstr "변화 비율"
+
+msgid "(extensions used during statistical analysis are marked)"
+msgstr "(통계분석 동안 사용된 확장자들이 굵게 표시됨)"
+
+msgid "Age"
+msgstr "나이"
+
+msgid "Author"
+msgstr "작성자"
+
+msgid ""
+"Below are the number of rows from each author that have survived and are "
+"still intact in the current revision"
+msgstr ""
+"현재 리비전까지 계속 활동해온 각각의 작성자들로부터의 행의 개수들이 아래에 표"
+"시된다."
+
+#, python-brace-format
+msgid "Checking how many rows belong to each author (Progress): {0:.0f}%"
+msgstr ""
+"얼마나 많은 행들이 각 작성자들에게 할당되어 있는지 확인중 (진행율): {0:.0f}%"
+
+msgid "Commits"
+msgstr "커밋들"
+
+msgid ""
+"Copyright © 2012-2014 Ejwa Software. All rights reserved.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
+"html>.\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+"\n"
+"Written by Adam Waldenberg."
+msgstr ""
+
+msgid "Deletions"
+msgstr "삭제횟수"
+
+msgid "Issues"
+msgstr "이슈"
+
+#, python-format
+msgid "Error processing git repository at \"%s\"."
+msgstr "git 저장소 \"%s\"에서 에러 처리"
+
+msgid "HTML output not yet supported in"
+msgstr "HTML 출력은 다음에서 아직 지원되지 않음"
+
+msgid "Hide minor authors"
+msgstr "미미한 작성자 숨김"
+
+msgid "Hide rows with minor work"
+msgstr "미미한 작업관련 행을 숨김"
+
+msgid "Insertions"
+msgstr "삽입횟수"
+
+msgid "Minor Authors"
+msgstr "미미한 작성자들"
+
+msgid "Modified Rows:"
+msgstr "수정된 행들:"
+
+msgid "No commited files with the specified extensions were found"
+msgstr "지정한 확장자를 가진 파일들이 하나도 발견되지 않았음"
+
+msgid "No metrics violations were found in the repository"
+msgstr "저장소내에 메트릭 위반들이 발견되지 않음"
+
+#, python-brace-format
+msgid "Repository statistics for {0}"
+msgstr "{0}에 대한 저장소 통계"
+
+msgid "Rows"
+msgstr "행"
+
+msgid "Show minor authors"
+msgstr "미미한 작성자 표시"
+
+msgid "Show rows with minor work"
+msgstr "미미한 작업에 대한 행들을 표시"
+
+msgid "Stability"
+msgstr "안정성"
+
+#, python-brace-format
+msgid "Statistical information for the repository '{0}' was gathered on {1}."
+msgstr "저장소 '{0}'에 대한 통계정보가 {1}에 수집되었음."
+
+msgid "Text output not yet supported in"
+msgstr "텍스트 출력은 아직 다음에서 지원되지 않음 : "
+
+msgid ""
+"The authors with the following emails were excluded from the statistics due "
+"to the specified exclusion patterns"
+msgstr ""
+"다음 이메일들을 가진 작성자들은 지정한 제외 패턴들에 따라서 통계에서 제외되었"
+"습니다"
+
+msgid "The extensions below were found in the repository history"
+msgstr "아래의 확장자들이 저장소 히스토리에서 발견되었습니다"
+
+msgid ""
+"The following authors were excluded from the statistics due to the specified "
+"exclusion patterns"
+msgstr "다음 작성자들은 지정한 제외 패턴들에 따라서 통계에서 제외되었습니다"
+
+msgid ""
+"The following commit revisions were excluded from the statistics due to the "
+"specified exclusion patterns"
+msgstr ""
+"다음 커밋 리비전들은 지정한 제외 패턴들에 따라서 통계에서 제외되었습니다"
+
+msgid "The following files are suspiciously big (in order of severity)"
+msgstr "다음파일들이 매우 큰 것으로 의심됩니다 (심각성순)"
+
+msgid ""
+"The following files have an elevated cyclomatic complexity (in order of "
+"severity)"
+msgstr "다음파일들은 한층높은 순환복잡도를 가지고 있습니다 (심각성순)"
+
+msgid ""
+"The following files have an elevated cyclomatic complexity density (in order "
+"of severity)"
+msgstr "다음파일들은 한층높은 순환복잡밀도를 가지고 있습니다 (심각성순)"
+
+msgid ""
+"The following files were excluded from the statistics due to the specified "
+"exclusion patterns"
+msgstr "다음 파일들은 지정한 제외 패턴들에 따라서 통계에서 제외되었습니다"
+
+
+msgid ""
+"The following historical commit information, by author, was found"
+msgstr ""
+"다음의 커밋 정보가 저장소에서 발견되었습니다 (유저별)."
+
+msgid ""
+"The following responsibilities, by author, were found in the current revision "
+"of the repository (comments are excluded from the line count, if possible)"
+msgstr ""
+"현재 버전의 저장소에서 다음과 같은 유저별 responsibility가 발견되었습니다 (주석은 제외)."
+
+msgid ""
+"Commit that has low line changes"
+msgstr ""
+"적은 변화를 가진 커밋들입니다"
+
+msgid ""
+"Repository has no commit that has low line changes"
+msgstr ""
+"적은 변화를 가진 커밋들이 존재하지 않습니다"
+
+msgid "Commit hash"
+msgstr "커밋 해쉬"
+
+msgid "Commit Msg"
+msgstr "커밋 메세지"
+
+msgid "Change"
+msgstr "라인 변화"
+
+msgid "Link"
+msgstr "링크"
+
+msgid "The following history timeline has been gathered from the repository"
+msgstr "다음의 히스토리 타임라인이 저장소로부터 수집되었습니다"
+
+msgid ""
+"The following repsonsibilties, by author, were found in the current revision "
+"of the repository (comments are exluded from the line count, if possible)"
+msgstr ""
+"다음의 책임들이 저장소의 현재 리비전에서 발견되었습니다 (작성자별, 가능한한 "
+"주석들은 라인개수로부터 제외됩니다)"
+
+msgid "The given option argument is not a valid boolean."
+msgstr "주어진 설정인자가 유효한 부울형이 아닙니다."
+
+#, python-brace-format
+msgid ""
+"The output has been generated by {0} {1}. The statistical analysis tool for "
+"git repositories."
+msgstr "{0} {1}에 의해 생성된 출력결과. Git저장소들을 위한 통계분석도구"
+
+#, python-brace-format
+msgid "Try `{0} --help' for more information."
+msgstr "자세한 정보를 원하시면 `{0} --help' 를 실행하세요."
+
+msgid "Unable to determine absolute path of git repository."
+msgstr "Git저장소의 절대경로를 결정할 수 없음."
+
+#, python-brace-format
+msgid ""
+"Usage: {0} [OPTION]... [REPOSITORY]\n"
+"List information about the repository in REPOSITORY. If no repository is\n"
+"specified, the current directory is used. If multiple repositories are\n"
+"given, information will be fetched from the last repository specified.\n"
+"\n"
+"Mandatory arguments to long options are mandatory for short options too.\n"
+"Boolean arguments can only be given to long options.\n"
+"  -f, --file-types=EXTENSIONS    a comma separated list of file extensions "
+"to\n"
+"                                   include when computing statistics. The\n"
+"                                   default extensions used are:\n"
+"                                   {1}\n"
+"  -F, --format=FORMAT            define in which format output should be\n"
+"                                   generated; the default format is 'text' "
+"and\n"
+"                                   the available formats are:\n"
+"                                   {2}\n"
+"      --grading[=BOOL]           show statistics and information in a way "
+"that\n"
+"                                   is formatted for grading of student\n"
+"                                   projects; this is the same as supplying "
+"the\n"
+"                                   options -HlmrTw\n"
+"  -H, --hard[=BOOL]              track rows and look for duplicates harder;\n"
+"                                   this can be quite slow with big "
+"repositories\n"
+"  -l, --list-file-types[=BOOL]   list all the file extensions available in "
+"the\n"
+"                                   current branch of the repository\n"
+"  -L, --localize-output[=BOOL]   localize the generated output to the "
+"selected\n"
+"                                   system language if a translation is\n"
+"                                   available\n"
+"  -m  --metrics[=BOOL]           include checks for certain metrics during "
+"the\n"
+"                                   analysis of commits\n"
+"  -r  --responsibilities[=BOOL]  show which files the different authors "
+"seem\n"
+"                                   most responsible for\n"
+"      --since=DATE               only show statistics for commits more "
+"recent\n"
+"                                   than a specific date\n"
+"  -T, --timeline[=BOOL]          show commit timeline, including author "
+"names\n"
+"      --until=DATE               only show statistics for commits older than "
+"a\n"
+"                                   specific date\n"
+"  -w, --weeks[=BOOL]             show all statistical information in weeks\n"
+"                                   instead of in months\n"
+"  -x, --exclude=PATTERN          an exclusion pattern describing the file\n"
+"                                   paths, revisions, author names or author\n"
+"                                   emails that should be excluded from the\n"
+"                                   statistics; can be specified multiple "
+"times\n"
+"  -h, --help                     display this help and exit\n"
+"      --version                  output version information and exit\n"
+"\n"
+"gitinspector will filter statistics to only include commits that modify,\n"
+"add or remove one of the specified extensions, see -f or --file-types for\n"
+"more information.\n"
+"\n"
+"gitinspector requires that the git executable is available in your PATH.\n"
+"Report gitinspector bugs to gitinspector@ejwa.se."
+msgstr ""
+"사용방법: {0} [OPTION]... [REPOSITORY]\n"
+"REPOSITORY에 지정된 저장소에 대해 정보를 나열한다.\n"
+"만약 아무런 저장소도 지정되지 않으면, 현재 디렉토리가 사용된다.\n"
+"만약 여러 저장소들이 주어지면, 마지막에 지정된 저장소로부터 정보를 가져온"
+"다.\n"
+"긴 옵션들에 대한 필수 인자들은 짧은 옵션들에 대해서도 필수임.\n"
+"부울형 인자는 오직 긴 옵션들에게만 줄 수 있음.\n"
+"  -f, --file-types=EXTENSIONS    a comma separated list of file extensions "
+"to\n"
+"                                   include when computing statistics. The\n"
+"                                   default extensions used are:\n"
+"                                   {1}\n"
+"  -F, --format=FORMAT            define in which format output should be\n"
+"                                   generated; the default format is 'text' "
+"and\n"
+"                                   the available formats are:\n"
+"                                   {2}\n"
+"      --grading[=BOOL]           show statistics and information in a way "
+"that\n"
+"                                   is formatted for grading of student\n"
+"                                   projects; this is the same as supplying "
+"the\n"
+"                                   options -HlmrTw\n"
+"  -H, --hard[=BOOL]              track rows and look for duplicates harder;\n"
+"                                   this can be quite slow with big "
+"repositories\n"
+"  -l, --list-file-types[=BOOL]   list all the file extensions available in "
+"the\n"
+"                                   current branch of the repository\n"
+"  -L, --localize-output[=BOOL]   localize the generated output to the "
+"selected\n"
+"                                   system language if a translation is\n"
+"                                   available\n"
+"  -m  --metrics[=BOOL]           include checks for certain metrics during "
+"the\n"
+"                                   analysis of commits\n"
+"  -r  --responsibilities[=BOOL]  show which files the different authors "
+"seem\n"
+"                                   most responsible for\n"
+"      --since=DATE               only show statistics for commits more "
+"recent\n"
+"                                   than a specific date\n"
+"  -T, --timeline[=BOOL]          show commit timeline, including author "
+"names\n"
+"      --until=DATE               only show statistics for commits older than "
+"a\n"
+"                                   specific date\n"
+"  -w, --weeks[=BOOL]             show all statistical information in weeks\n"
+"                                   instead of in months\n"
+"  -x, --exclude=PATTERN          an exclusion pattern describing the file\n"
+"                                   paths, revisions, author names or author\n"
+"                                   emails that should be excluded from the\n"
+"                                   statistics; can be specified multiple "
+"times\n"
+"  -h, --help                     display this help and exit\n"
+"      --version                  output version information and exit\n"
+"\n"
+"gitinspector will filter statistics to only include commits that modify,\n"
+"add or remove one of the specified extensions, see -f or --file-types for\n"
+"more information.\n"
+"\n"
+"gitinspector requires that the git executable is available in your PATH.\n"
+"Report gitinspector bugs to gitinspector@ejwa.se."
+
+msgid ""
+"WARNING: The terminal encoding is not correctly configured. gitinspector "
+"might malfunction. The encoding can be configured with the environment "
+"variable 'PYTHONIOENCODING'."
+msgstr ""
+"경고: 터미널 인코딩문자가 제대로 설정되지 않았음. gitinspector가 오동작할 수 "
+"있습니다. 인코딩은 환경변수 'PYTHONIOENCODING'에서 설정될 수 있습니다."
+
+msgid "XML output not yet supported in"
+msgstr "XML 출력은 다음에서 아직 지원되지 않음: "
+
+#, python-brace-format
+msgid ""
+"gitinspector requires at least Python 2.6 to run (version {0} was found)."
+msgstr ""
+"gitinspector는 실행에 최소 Python 2.6이상의 버전이 필요합니다 (버전 {0} 가 발"
+"견됨)."
+
+msgid "invalid regular expression specified"
+msgstr "유효하지 않은 정규식이 지정됨"
+
+msgid "is mostly responsible for"
+msgstr "가 기여한 파일 :"
+
+msgid "specified output format not supported."
+msgstr "지정된 출력형식이 지원되지 않음."
+
+#, python-brace-format
+msgid "{0} ({1:.3f} in cyclomatic complexity density)"
+msgstr "{0} ({1:.3f} 순환복잡밀도로 표현)"
+
+#, python-brace-format
+msgid "{0} ({1} estimated lines of code)"
+msgstr "{0} ({1} 예측된 코드라인수)"
+
+#, python-brace-format
+msgid "{0} ({1} in cyclomatic complexity)"
+msgstr "{0} ({1} 순환복잡도로 표현)"
