@@ -15,7 +15,6 @@ from ipaddress import ip_network, ip_address
 import logging
 import hmac
 import hashlib
-import json
 
 # If true the function will not include .git folder in the zip
 exclude_git = True
@@ -96,15 +95,13 @@ def pull_repo(repo, branch_name, remote_url, creds):
 
 def zip_repo(repo_path, repo_name):
     logger.info('Creating zipfile...')
-    way = '/tmp/'+repo_name.replace('/', '_')+'.zip'
-    logger.info(way)
-    zf = ZipFile(way, 'w')
+    zf = ZipFile('/tmp/'+repo_name.replace('/', '_')+'.zip', 'w')
     for dirname, subdirs, files in os.walk(repo_path):
-        # if exclude_git:
-        #     try:
-        #         subdirs.remove('.git')
-        #     except ValueError:
-        #         pass
+        if exclude_git:
+            try:
+                subdirs.remove('.git')
+            except ValueError:
+                pass
         zdirname = dirname[len(repo_path)+1:]
         zf.write(dirname, zdirname)
         for filename in files:
@@ -122,7 +119,6 @@ def push_s3(filename, repo_name, outputbucket):
 
 
 def lambda_handler(event, context):
-    logger.info(json.dumps(event, sort_keys=True, indent=4))
     keybucket = event['context']['key-bucket']
     outputbucket = event['context']['output-bucket']
     pubkey = event['context']['public-key']
@@ -190,11 +186,9 @@ def lambda_handler(event, context):
     pull_repo(repo, branch_name, remote_url, creds)
     zipfile = zip_repo(repo_path, repo_name)
     push_s3(zipfile, repo_name, outputbucket)
-    if cleanup:
-        logger.info('Cleanup Lambda container...')
-        shutil.rmtree(repo_path)
-        os.remove(zipfile)
-        os.remove('/tmp/id_rsa')
-        os.remove('/tmp/id_rsa.pub')
+    logger.info('Cleanup Lambda container...')
+    shutil.rmtree(repo_path)
+    os.remove(zipfile)
+
     return 'Successfully updated %s' % repo_name
 
